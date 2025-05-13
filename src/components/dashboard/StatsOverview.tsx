@@ -7,7 +7,7 @@ export const StatsOverview = () => {
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
       <StatCard
         title="Total Revenue"
-        value="د.إ0"
+        value="0"
         icon={<Home className="h-6 w-6 text-primary" />}
       />
       <StatCard
@@ -17,7 +17,7 @@ export const StatsOverview = () => {
       />
       <StatCard
         title="Payout Received"
-        value="د.إ0"
+        value="0"
         icon={<Banknote className="h-6 w-6 text-primary" />}
       />
     </div>

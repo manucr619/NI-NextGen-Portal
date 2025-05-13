@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import { DashboardLayout } from '@/components/layout/DashboardLayout';
 import { StatCard } from '@/components/dashboard/StatCard';
@@ -46,7 +45,7 @@ const Dashboard = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
           <StatCard
             title="Total Sales Volume"
-            value="د.إ345,600"
+            value="345,600"
             description="This month"
             icon={<CreditCard className="h-6 w-6 text-primary" />}
             trend={{ value: 8.2, isPositive: true }}
@@ -62,7 +61,7 @@ const Dashboard = () => {
           />
           <StatCard
             title="Refunds"
-            value="د.إ12,560"
+            value="12,560"
             description="12 transactions"
             icon={<RefreshCcw className="h-6 w-6 text-primary" />}
             trend={{ value: 2.3, isPositive: false }}
@@ -70,15 +69,15 @@ const Dashboard = () => {
           />
           <StatCard
             title="Outstanding Settlements"
-            value="د.إ58,430"
+            value="58,430"
             description="Due in T+2 days"
             icon={<Banknote className="h-6 w-6 text-primary" />}
             tooltipText="Amount to be settled to your bank account"
           />
           <StatCard
             title="Loan Balance"
-            value="د.إ325,000"
-            description="Next EMI: د.إ29,167"
+            value="325,000"
+            description="Next EMI: 29,167"
             icon={<DollarSign className="h-6 w-6 text-primary" />}
             tooltipText="Remaining business loan amount"
           />

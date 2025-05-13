@@ -16,7 +16,7 @@ export const CountriesMap = () => {
               key={country.name}
               flag={country.flag}
               name={country.name}
-              value="د.إ0k"
+              value="0k"
             />
           ))}
         </div>

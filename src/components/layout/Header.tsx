@@ -66,7 +66,7 @@ export const Header = ({ toggleSidebar }: HeaderProps) => {
             <div className="max-h-80 overflow-auto">
               <NotificationItem
                 title="Payment Received"
-                description="You received د.إ15,000 from Customer XYZ"
+                description="You received 15,000 from Customer XYZ"
                 time="2 hours ago"
               />
               <NotificationItem

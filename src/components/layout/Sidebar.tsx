@@ -43,7 +43,7 @@ export const Sidebar = ({ open, onOpenChange }: SidebarProps) => {
       )}
       <aside
         className={cn(
-          "fixed top-0 left-0 h-full z-40 flex flex-col transition-all duration-300",
+          "fixed top-16 left-0 h-[calc(100%-4rem)] z-40 flex flex-col transition-all duration-300",
           "backdrop-blur-lg bg-white/70 dark:bg-gray-900/70 border-r border-gray-200 dark:border-gray-800 shadow-xl",
           "rounded-r-3xl m-2",
           isMobile
@@ -56,21 +56,6 @@ export const Sidebar = ({ open, onOpenChange }: SidebarProps) => {
         )}
         style={{ boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.15)' }}
       >
-        {/* Collapse button */}
-        {!isMobile && (
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => onOpenChange(!open)}
-            className={cn(
-              "absolute top-4 -right-4 bg-white/80 dark:bg-gray-800/80 rounded-full p-1 border shadow-md hover:bg-gray-100 dark:hover:bg-gray-700 z-50",
-              open ? "rotate-180" : ""
-            )}
-            style={{ boxShadow: '0 2px 8px 0 rgba(31, 38, 135, 0.10)' }}
-          >
-            <ChevronLeft className="h-5 w-5 text-primary" />
-          </Button>
-        )}
         <div className="flex flex-col flex-grow h-full overflow-y-auto py-6 gap-2">
           <SidebarNavItem Icon={LayoutDashboard} to="/" label="Dashboard" expanded={open} onClick={handleItemClick} />
           <SidebarNavItem Icon={CreditCard} to="/payments" label="Payments" expanded={open} onClick={handleItemClick} />
@@ -86,6 +71,21 @@ export const Sidebar = ({ open, onOpenChange }: SidebarProps) => {
           <div className="mt-auto pt-4 border-t border-gray-200 dark:border-gray-800">
             <SidebarNavItem Icon={Settings} to="/settings" label="Settings" expanded={open} onClick={handleItemClick} />
           </div>
+          {/* Collapse button at the bottom */}
+          {!isMobile && (
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => onOpenChange(!open)}
+              className={cn(
+                "mt-4 mb-2 self-center bg-white/80 dark:bg-gray-800/80 rounded-full p-1 border shadow-md hover:bg-gray-100 dark:hover:bg-gray-700 z-50",
+                open ? "rotate-180" : ""
+              )}
+              style={{ boxShadow: '0 2px 8px 0 rgba(31, 38, 135, 0.10)' }}
+            >
+              <ChevronLeft className="h-5 w-5 text-primary" />
+            </Button>
+          )}
         </div>
       </aside>
     </>
@@ -106,7 +106,7 @@ const SidebarNavItem = ({ Icon, to, label, expanded, onClick }: SidebarNavItemPr
       to={to}
       className={({ isActive }) =>
         cn(
-          "flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 font-medium",
+          "flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 font-medium text-base",
           "hover:bg-primary/10 dark:hover:bg-primary/20 hover:shadow-md",
           isActive ? "bg-primary/20 text-primary shadow-lg" : "text-gray-700 dark:text-gray-200",
           !expanded && "justify-center px-0"
@@ -116,7 +116,7 @@ const SidebarNavItem = ({ Icon, to, label, expanded, onClick }: SidebarNavItemPr
       style={{ minHeight: 48 }}
     >
       <Icon size={22} className="shrink-0" />
-      {expanded && <span className="truncate text-base" style={{ transition: 'opacity 0.2s' }}>{label}</span>}
+      {expanded && <span className="truncate" style={{ transition: 'opacity 0.2s' }}>{label}</span>}
     </NavLink>
   );
 };
