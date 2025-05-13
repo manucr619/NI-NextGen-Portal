@@ -1,24 +1,41 @@
 import { DashboardLayout } from '@/components/layout/DashboardLayout';
+import { TerminalFilters } from '@/components/pos/TerminalFilters';
+import { TerminalSummaryCards } from '@/components/pos/TerminalSummaryCards';
+import { TerminalTable } from '@/components/pos/TerminalTable';
+import { TerminalAnalyticsPanel } from '@/components/pos/TerminalAnalyticsPanel';
+import { TerminalDetailsPanel } from '@/components/pos/TerminalDetailsPanel';
+import { AlertBanner } from '@/components/pos/AlertBanner';
+import { useState } from 'react';
+
+const MOCK_ROLE = 'admin'; // or 'viewer'
 
 const POSTerminalsPage = () => {
+  const [selectedTerminal, setSelectedTerminal] = useState(null);
+  const [showDetails, setShowDetails] = useState(false);
+
   return (
     <DashboardLayout>
       <div className="space-y-6">
         <div>
           <h1 className="text-3xl font-bold tracking-tight">POS Terminals</h1>
           <p className="text-muted-foreground mt-1">
-            Manage your point-of-sale terminals and hardware.
+            Manage and monitor all your deployed POS terminals across locations.
           </p>
         </div>
-        
-        <div className="grid gap-6">
-          <div className="bg-white/70 dark:bg-gray-900/70 backdrop-blur-lg p-8 rounded-2xl shadow-xl border-0 transition-all"
-            style={{ boxShadow: '0 4px 24px 0 rgba(31, 38, 135, 0.10)' }}
-          >
-            <h2 className="text-xl font-semibold mb-4">Terminal Management</h2>
-            <p>Your POS terminal inventory and status will appear here.</p>
-          </div>
-        </div>
+        <AlertBanner />
+        <TerminalFilters role={MOCK_ROLE} />
+        <TerminalSummaryCards role={MOCK_ROLE} />
+        <TerminalTable 
+          role={MOCK_ROLE} 
+          onRowClick={(terminal) => { setSelectedTerminal(terminal); setShowDetails(true); }}
+        />
+        {MOCK_ROLE === 'admin' && <TerminalAnalyticsPanel />}
+        <TerminalDetailsPanel 
+          open={showDetails} 
+          terminal={selectedTerminal} 
+          onClose={() => setShowDetails(false)} 
+          role={MOCK_ROLE}
+        />
       </div>
     </DashboardLayout>
   );
