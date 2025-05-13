@@ -12,11 +12,10 @@ import {
   Banknote, 
   ChartBar, 
   DollarSign, 
-  FileText, 
-  Receipt, 
   Settings, 
   ChevronRight,
-  ChevronLeft
+  ChevronLeft,
+  Receipt
 } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 
@@ -46,7 +45,7 @@ export const Sidebar = ({ open, onOpenChange }: SidebarProps) => {
       
       <aside
         className={cn(
-          "bg-sidebar h-[calc(100vh-4rem)] z-30 flex flex-col border-r transition-all duration-300",
+          "bg-sidebar h-screen z-30 flex flex-col border-r transition-all duration-300",
           isMobile 
             ? open 
               ? "fixed left-0 w-64" 
@@ -80,7 +79,6 @@ export const Sidebar = ({ open, onOpenChange }: SidebarProps) => {
           <NavItem Icon={Banknote} to="/settlements" label="Settlements" expanded={open} onClick={handleItemClick} />
           <NavItem Icon={ChartBar} to="/reports" label="Reports & Analytics" expanded={open} onClick={handleItemClick} />
           <NavItem Icon={DollarSign} to="/loan-services" label="Loan Services" expanded={open} onClick={handleItemClick} />
-          <NavItem Icon={FileText} to="/digital-onboarding" label="Digital Onboarding" expanded={open} onClick={handleItemClick} />
           
           <div className="mt-auto">
             <NavItem Icon={Settings} to="/settings" label="Settings" expanded={open} onClick={handleItemClick} />
