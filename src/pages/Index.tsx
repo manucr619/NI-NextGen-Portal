@@ -12,6 +12,9 @@ import { PaymentMethodChart } from '@/components/charts/PaymentMethodChart';
 import { ChannelComparisonChart } from '@/components/charts/ChannelComparisonChart';
 import { CreditCard, TrendingUp, RefreshCcw, Banknote, DollarSign } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { StatsOverview } from '@/components/dashboard/StatsOverview';
+import { CounterCards } from '@/components/dashboard/CounterCards';
+import { CountriesMap } from '@/components/dashboard/CountriesMap';
 
 const Dashboard = () => {
   const { toast } = useToast();
@@ -36,11 +39,14 @@ const Dashboard = () => {
         
         <AlertsBanner />
         
+        {/* New Stats Overview Section */}
+        <StatsOverview />
+        
         {/* KPI Stats Section */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
           <StatCard
             title="Total Sales Volume"
-            value="د.إ3,45,600"
+            value="د.إ345,600"
             description="This month"
             icon={<CreditCard className="h-6 w-6 text-primary" />}
             trend={{ value: 8.2, isPositive: true }}
@@ -71,12 +77,18 @@ const Dashboard = () => {
           />
           <StatCard
             title="Loan Balance"
-            value="د.إ3,25,000"
+            value="د.إ325,000"
             description="Next EMI: د.إ29,167"
             icon={<DollarSign className="h-6 w-6 text-primary" />}
             tooltipText="Remaining business loan amount"
           />
         </div>
+        
+        {/* Counter Cards Section */}
+        <CounterCards />
+        
+        {/* Countries Map Section */}
+        <CountriesMap />
         
         {/* Charts Section */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

@@ -1,4 +1,3 @@
-
 import { Bell, Settings, ChevronDown } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
@@ -10,6 +9,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { ThemeToggle } from "@/components/theme/ThemeToggle";
 
 interface HeaderProps {
   toggleSidebar: () => void;

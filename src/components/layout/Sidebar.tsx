@@ -15,7 +15,9 @@ import {
   Settings, 
   ChevronRight,
   ChevronLeft,
-  Receipt
+  Receipt,
+  Users,
+  Map
 } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 
@@ -45,7 +47,7 @@ export const Sidebar = ({ open, onOpenChange }: SidebarProps) => {
       
       <aside
         className={cn(
-          "bg-sidebar h-screen z-30 flex flex-col border-r transition-all duration-300",
+          "bg-sidebar min-h-screen h-full z-30 flex flex-col border-r transition-all duration-300",
           isMobile 
             ? open 
               ? "fixed left-0 w-64" 
@@ -61,7 +63,7 @@ export const Sidebar = ({ open, onOpenChange }: SidebarProps) => {
             size="sm" 
             onClick={() => onOpenChange(!open)} 
             className={cn(
-              "absolute -right-3 top-6 bg-white rounded-full p-1 border shadow-md hover:bg-gray-100",
+              "absolute -right-3 top-6 bg-white dark:bg-gray-800 rounded-full p-1 border shadow-md hover:bg-gray-100 dark:hover:bg-gray-700",
               open ? "rotate-180" : ""
             )}
           >
@@ -79,6 +81,8 @@ export const Sidebar = ({ open, onOpenChange }: SidebarProps) => {
           <NavItem Icon={Banknote} to="/settlements" label="Settlements" expanded={open} onClick={handleItemClick} />
           <NavItem Icon={ChartBar} to="/reports" label="Reports & Analytics" expanded={open} onClick={handleItemClick} />
           <NavItem Icon={DollarSign} to="/loan-services" label="Loan Services" expanded={open} onClick={handleItemClick} />
+          <NavItem Icon={Users} to="/customers" label="Customers" expanded={open} onClick={handleItemClick} />
+          <NavItem Icon={Map} to="/countries" label="Countries" expanded={open} onClick={handleItemClick} />
           
           <div className="mt-auto">
             <NavItem Icon={Settings} to="/settings" label="Settings" expanded={open} onClick={handleItemClick} />

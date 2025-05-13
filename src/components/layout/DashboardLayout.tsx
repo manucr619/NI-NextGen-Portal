@@ -20,7 +20,7 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header toggleSidebar={toggleSidebar} />
-      <div className="flex flex-1 overflow-hidden">
+      <div className="flex flex-1 overflow-hidden h-[calc(100vh-64px)]">
         <Sidebar open={isMobile ? sidebarOpen : true} onOpenChange={setSidebarOpen} />
         <main 
           className={cn(
