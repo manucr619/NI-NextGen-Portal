@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -25,12 +26,32 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					DEFAULT: '#0069B1',
+					foreground: '#FFFFFF',
+					50: '#E6F0F9',
+					100: '#CCE0F3',
+					200: '#99C2E6',
+					300: '#66A3DA',
+					400: '#3385CD',
+					500: '#0069B1',
+					600: '#00548E',
+					700: '#003F6A',
+					800: '#002A47',
+					900: '#001523',
 				},
 				secondary: {
-					DEFAULT: 'hsl(var(--secondary))',
-					foreground: 'hsl(var(--secondary-foreground))'
+					DEFAULT: '#E12E56',
+					foreground: '#FFFFFF',
+					50: '#FCE9ED',
+					100: '#F9D3DB',
+					200: '#F3A7B7',
+					300: '#ED7C94',
+					400: '#E75070',
+					500: '#E12E56',
+					600: '#B42545',
+					700: '#871C34',
+					800: '#5A1222',
+					900: '#2D0911',
 				},
 				destructive: {
 					DEFAULT: 'hsl(var(--destructive))',
@@ -68,6 +89,9 @@ export default {
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
+			fontFamily: {
+				sans: ['Inter', 'sans-serif'],
+			},
 			keyframes: {
 				'accordion-down': {
 					from: {
@@ -84,11 +108,21 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'fade-in': {
+					'0%': { opacity: '0' },
+					'100%': { opacity: '1' }
+				},
+				'fade-out': {
+					'0%': { opacity: '1' },
+					'100%': { opacity: '0' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.3s ease-out',
+				'fade-out': 'fade-out 0.3s ease-out'
 			}
 		}
 	},
