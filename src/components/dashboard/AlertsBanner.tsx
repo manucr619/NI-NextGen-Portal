@@ -1,8 +1,7 @@
 
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { ExclamationTriangleIcon } from '@radix-ui/react-icons';
+import { TriangleAlert, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { XIcon } from 'lucide-react';
 import { useState } from 'react';
 
 interface Alert {
@@ -42,7 +41,7 @@ export const AlertsBanner = () => {
         <Alert key={alert.id} variant={alert.type === 'info' ? 'default' : 'destructive'}>
           <div className="flex justify-between items-start">
             <div className="flex">
-              <ExclamationTriangleIcon className="h-4 w-4 mt-1" />
+              <TriangleAlert className="h-4 w-4 mt-1" />
               <div className="ml-2">
                 <AlertTitle>{alert.title}</AlertTitle>
                 <AlertDescription className="flex items-center justify-between">
@@ -60,7 +59,7 @@ export const AlertsBanner = () => {
                 className="h-6 w-6" 
                 onClick={() => dismissAlert(alert.id)}
               >
-                <XIcon className="h-3 w-3" />
+                <X className="h-3 w-3" />
               </Button>
             </div>
           </div>
