@@ -1,4 +1,3 @@
-
 import { Card } from "@/components/ui/card";
 
 export const CounterCards = () => {
@@ -26,16 +25,13 @@ interface CounterCardProps {
 
 const CounterCard = ({ title, value }: CounterCardProps) => {
   return (
-    <Card className="bg-gray-900 dark:bg-gray-800 text-white p-5 rounded-lg shadow-md">
-      <div className="flex flex-col items-center justify-center h-full">
-        <h3 className="text-5xl font-bold mb-2">{value}</h3>
-        <p className="text-sm text-gray-300">{title.toLowerCase()}</p>
-        <div className="w-36 h-36 mt-4 rounded-full border-8 border-gray-700 dark:border-gray-600 flex items-center justify-center">
-          <div className="text-center">
-            <span className="text-4xl font-bold">{value}</span>
-            <p className="text-xs text-gray-400">{title.toLowerCase()}</p>
-          </div>
-        </div>
+    <Card className="bg-white/70 dark:bg-gray-900/70 backdrop-blur-lg text-gray-900 dark:text-white p-6 rounded-2xl shadow-xl flex flex-col items-center justify-center h-full border-0 transition-all"
+      style={{ boxShadow: '0 4px 24px 0 rgba(31, 38, 135, 0.10)' }}
+    >
+      <h3 className="text-5xl font-bold mb-2">{value}</h3>
+      <p className="text-sm text-gray-500 dark:text-gray-300 mb-4">{title.toLowerCase()}</p>
+      <div className="w-28 h-28 mt-2 rounded-full border-8 border-gray-200 dark:border-gray-700 flex items-center justify-center bg-white/40 dark:bg-gray-800/40">
+        <span className="text-3xl font-bold text-gray-700 dark:text-gray-200">{value}</span>
       </div>
     </Card>
   );
@@ -43,9 +39,11 @@ const CounterCard = ({ title, value }: CounterCardProps) => {
 
 const RevenueByProduct = () => {
   return (
-    <Card className="bg-gray-900 dark:bg-gray-800 text-white p-5 rounded-lg shadow-md col-span-1">
-      <h3 className="text-lg font-medium mb-3">Revenue Split by Product type</h3>
-      <div className="h-64 flex items-center justify-center">
+    <Card className="bg-white/70 dark:bg-gray-900/70 backdrop-blur-lg text-gray-900 dark:text-white p-6 rounded-2xl shadow-xl col-span-1 border-0 transition-all"
+      style={{ boxShadow: '0 4px 24px 0 rgba(31, 38, 135, 0.10)' }}
+    >
+      <h3 className="text-lg font-semibold mb-3">Revenue Split by Product type</h3>
+      <div className="h-40 flex items-center justify-center">
         <p className="text-gray-400">No data available</p>
       </div>
       <div className="flex justify-center mt-2 space-x-4">

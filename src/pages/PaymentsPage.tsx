@@ -1,4 +1,3 @@
-
 import { DashboardLayout } from '@/components/layout/DashboardLayout';
 
 const PaymentsPage = () => {
@@ -13,7 +12,9 @@ const PaymentsPage = () => {
         </div>
         
         <div className="grid gap-6">
-          <div className="rounded-lg border bg-card p-6">
+          <div className="bg-white/70 dark:bg-gray-900/70 backdrop-blur-lg p-8 rounded-2xl shadow-xl border-0 transition-all"
+            style={{ boxShadow: '0 4px 24px 0 rgba(31, 38, 135, 0.10)' }}
+          >
             <h2 className="text-xl font-semibold mb-4">Payment Overview</h2>
             <p>Your payment management dashboard will appear here.</p>
           </div>

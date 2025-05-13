@@ -1,6 +1,5 @@
-
-import { cn } from '@/lib/utils';
 import { Card, CardContent } from '@/components/ui/card';
+import { cn } from '@/lib/utils';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { Info } from 'lucide-react';
 
@@ -27,12 +26,18 @@ export const StatCard = ({
   className,
 }: StatCardProps) => {
   return (
-    <Card className={cn("card-shadow overflow-hidden", className)}>
-      <CardContent className="p-6 card-gradient">
+    <Card
+      className={cn(
+        "overflow-hidden border-0 bg-white/70 dark:bg-gray-900/70 backdrop-blur-lg rounded-2xl shadow-xl transition-all",
+        className
+      )}
+      style={{ boxShadow: '0 4px 24px 0 rgba(31, 38, 135, 0.10)' }}
+    >
+      <CardContent className="p-6 flex flex-col gap-2">
         <div className="flex justify-between items-start">
           <div>
-            <div className="flex items-center">
-              <h3 className="text-sm font-medium text-gray-500">{title}</h3>
+            <div className="flex items-center gap-1">
+              <h3 className="text-sm font-semibold text-gray-600 dark:text-gray-300">{title}</h3>
               {tooltipText && (
                 <TooltipProvider>
                   <Tooltip>
@@ -46,25 +51,27 @@ export const StatCard = ({
                 </TooltipProvider>
               )}
             </div>
-            <div className="mt-1 flex items-baseline">
-              <h2 className="text-2xl font-semibold">{value}</h2>
+            <div className="mt-1 flex items-baseline gap-2">
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-white">{value}</h2>
               {trend && (
                 <span
                   className={cn(
-                    "ml-2 text-sm",
+                    "text-base font-medium",
                     trend.isPositive ? "text-green-600" : "text-red-600"
                   )}
                 >
-                  {trend.isPositive ? "+" : "-"}
+                  {trend.isPositive ? '+' : '-'}
                   {trend.value}%
                 </span>
               )}
             </div>
             {description && (
-              <p className="mt-1 text-xs text-gray-500">{description}</p>
+              <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">{description}</p>
             )}
           </div>
-          <div className="p-2 rounded-full bg-primary-50">{icon}</div>
+          <div className="p-3 rounded-xl bg-primary/10 dark:bg-primary/20 shadow-md flex items-center justify-center">
+            {icon}
+          </div>
         </div>
       </CardContent>
     </Card>
