@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { 
   Select, 
@@ -14,7 +13,7 @@ interface ChartCardProps {
   children: ReactNode;
   filterOptions?: string[];
   onFilterChange?: (value: string) => void;
-  className?: string; // Added className property
+  className?: string;
 }
 
 export const ChartCard = ({ 
@@ -25,15 +24,18 @@ export const ChartCard = ({
   className
 }: ChartCardProps) => {
   return (
-    <Card className={`card-shadow h-full ${className || ''}`}>
+    <Card
+      className={`overflow-hidden border-0 bg-white/70 dark:bg-gray-900/70 backdrop-blur-lg rounded-2xl shadow-xl h-full transition-all ${className || ''}`}
+      style={{ boxShadow: '0 4px 24px 0 rgba(31, 38, 135, 0.10)' }}
+    >
       <CardHeader className="flex flex-row items-center justify-between pb-2">
-        <CardTitle className="text-lg font-medium">{title}</CardTitle>
+        <CardTitle className="text-lg font-semibold text-gray-800 dark:text-gray-100">{title}</CardTitle>
         {filterOptions && (
           <Select defaultValue={filterOptions[0]} onValueChange={onFilterChange}>
-            <SelectTrigger className="w-[160px] h-8 text-xs">
+            <SelectTrigger className="w-[160px] h-8 text-xs bg-white/60 dark:bg-gray-800/60 border-0 shadow rounded-lg">
               <SelectValue />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className="rounded-xl shadow-lg">
               {filterOptions.map((option) => (
                 <SelectItem key={option} value={option} className="text-xs">
                   {option}

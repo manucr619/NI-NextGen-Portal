@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import {
   Table,
@@ -8,11 +7,11 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { 
+import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuTrigger 
+  DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
 import { ChevronDown, Eye, RefreshCw, MoreHorizontal } from 'lucide-react';
@@ -74,31 +73,32 @@ export const TransactionTable = () => {
   const [transactions] = useState<Transaction[]>(demoTransactions);
 
   return (
-    <div className="rounded-md border bg-white overflow-hidden">
-      <div className="flex items-center justify-between px-4 py-3 border-b">
-        <h3 className="font-medium">Recent Transactions</h3>
-        <Button variant="outline" size="sm" className="h-8 gap-1">
+    <div className="rounded-2xl border-0 bg-white/70 dark:bg-gray-900/70 backdrop-blur-lg shadow-xl overflow-hidden transition-all"
+      style={{ boxShadow: '0 4px 24px 0 rgba(31, 38, 135, 0.10)' }}
+    >
+      <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 dark:border-gray-800 bg-white/60 dark:bg-gray-900/60 rounded-t-2xl">
+        <h3 className="font-semibold text-lg text-gray-800 dark:text-gray-100">Recent Transactions</h3>
+        <Button variant="outline" size="sm" className="h-8 gap-1 rounded-lg shadow">
           <RefreshCw className="h-3.5 w-3.5" /> Refresh
         </Button>
       </div>
-
       <div className="overflow-x-auto">
-        <Table>
-          <TableHeader>
+        <Table className="min-w-full">
+          <TableHeader className="bg-white/40 dark:bg-gray-900/40">
             <TableRow>
-              <TableHead className="w-[150px]">Transaction ID</TableHead>
-              <TableHead>Date & Time</TableHead>
-              <TableHead>Amount</TableHead>
-              <TableHead>Channel</TableHead>
-              <TableHead>Payment Method</TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead className="text-right">Actions</TableHead>
+              <TableHead className="w-[150px] text-gray-700 dark:text-gray-200">Transaction ID</TableHead>
+              <TableHead className="text-gray-700 dark:text-gray-200">Date & Time</TableHead>
+              <TableHead className="text-gray-700 dark:text-gray-200">Amount</TableHead>
+              <TableHead className="text-gray-700 dark:text-gray-200">Channel</TableHead>
+              <TableHead className="text-gray-700 dark:text-gray-200">Payment Method</TableHead>
+              <TableHead className="text-gray-700 dark:text-gray-200">Status</TableHead>
+              <TableHead className="text-right text-gray-700 dark:text-gray-200">Actions</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {transactions.map((transaction) => (
-              <TableRow key={transaction.id}>
-                <TableCell className="font-medium">{transaction.id}</TableCell>
+              <TableRow key={transaction.id} className="hover:bg-primary/5 dark:hover:bg-primary/10 transition-all">
+                <TableCell className="font-medium text-gray-900 dark:text-white">{transaction.id}</TableCell>
                 <TableCell>{transaction.date}</TableCell>
                 <TableCell>{transaction.amount}</TableCell>
                 <TableCell>{transaction.channel}</TableCell>
@@ -109,15 +109,15 @@ export const TransactionTable = () => {
                 <TableCell className="text-right">
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                      <Button variant="ghost" size="icon" className="h-8 w-8">
+                      <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full">
                         <MoreHorizontal className="h-4 w-4" />
                       </Button>
                     </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end">
+                    <DropdownMenuContent align="end" className="rounded-xl shadow-lg">
                       <DropdownMenuItem className="flex items-center gap-2">
                         <Eye className="h-4 w-4" /> View Details
                       </DropdownMenuItem>
-                      <DropdownMenuItem 
+                      <DropdownMenuItem
                         className="flex items-center gap-2"
                         disabled={transaction.status === 'Refunded' || transaction.status === 'Failed'}
                       >
@@ -137,7 +137,6 @@ export const TransactionTable = () => {
 
 const StatusBadge = ({ status }: { status: Transaction['status'] }) => {
   let variant: "default" | "outline" | "secondary" | "destructive" = "default";
-  
   switch (status) {
     case 'Completed':
       variant = "default";
@@ -152,6 +151,5 @@ const StatusBadge = ({ status }: { status: Transaction['status'] }) => {
       variant = "outline";
       break;
   }
-  
   return <Badge variant={variant}>{status}</Badge>;
 };
