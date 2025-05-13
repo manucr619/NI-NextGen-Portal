@@ -39,7 +39,7 @@ const Dashboard = () => {
         
         <AlertsBanner />
         
-        {/* New Stats Overview Section */}
+        {/* Stats Overview Section */}
         <StatsOverview />
         
         {/* KPI Stats Section */}

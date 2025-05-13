@@ -22,7 +22,7 @@ import CountriesPage from "./pages/CountriesPage";
 const queryClient = new QueryClient();
 
 const App = () => (
-  <ThemeProvider defaultTheme="dark" storageKey="app-theme">
+  <ThemeProvider defaultTheme="light" storageKey="app-theme">
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />

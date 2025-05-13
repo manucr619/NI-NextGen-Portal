@@ -1,3 +1,4 @@
+
 import { Bell, Settings, ChevronDown } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
@@ -17,7 +18,7 @@ interface HeaderProps {
 
 export const Header = ({ toggleSidebar }: HeaderProps) => {
   return (
-    <header className="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-4 md:px-6">
+    <header className="h-16 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 flex items-center justify-between px-4 md:px-6">
       <div className="flex items-center">
         <Button 
           variant="ghost" 
@@ -45,6 +46,8 @@ export const Header = ({ toggleSidebar }: HeaderProps) => {
       </div>
       
       <div className="flex items-center space-x-2">
+        <ThemeToggle />
+        
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" size="icon" className="relative">
@@ -58,7 +61,7 @@ export const Header = ({ toggleSidebar }: HeaderProps) => {
             <div className="max-h-80 overflow-auto">
               <NotificationItem 
                 title="Payment Received"
-                description="You received ₹15,000 from Customer XYZ"
+                description="You received د.إ15,000 from Customer XYZ"
                 time="2 hours ago"
               />
               <NotificationItem 
