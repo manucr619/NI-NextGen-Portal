@@ -14,16 +14,18 @@ interface ChartCardProps {
   children: ReactNode;
   filterOptions?: string[];
   onFilterChange?: (value: string) => void;
+  className?: string; // Added className property
 }
 
 export const ChartCard = ({ 
   title, 
   children, 
   filterOptions = ["Last 7 days", "This month", "Last month", "Custom range"],
-  onFilterChange 
+  onFilterChange,
+  className
 }: ChartCardProps) => {
   return (
-    <Card className="card-shadow h-full">
+    <Card className={`card-shadow h-full ${className || ''}`}>
       <CardHeader className="flex flex-row items-center justify-between pb-2">
         <CardTitle className="text-lg font-medium">{title}</CardTitle>
         {filterOptions && (
