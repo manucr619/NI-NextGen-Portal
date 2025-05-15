@@ -106,7 +106,7 @@ const SidebarNavItem = ({ Icon, to, label, expanded, onClick }: SidebarNavItemPr
       to={to}
       className={({ isActive }) =>
         cn(
-          "flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 font-medium text-base",
+          "flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 font-medium text-sm",
           "hover:bg-primary/10 dark:hover:bg-primary/20 hover:shadow-md",
           isActive ? "bg-primary/20 text-primary shadow-lg" : "text-gray-700 dark:text-gray-200",
           !expanded && "justify-center px-0"
