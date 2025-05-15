@@ -63,6 +63,7 @@ export const Sidebar = ({ open, onOpenChange }: SidebarProps) => {
           <SidebarNavItem Icon={Smartphone} to="/softpos" label="SoftPOS (Mobile)" expanded={open} onClick={handleItemClick} />
           <SidebarNavItem Icon={Globe} to="/e-commerce" label="E-commerce" expanded={open} onClick={handleItemClick} />
           <SidebarNavItem Icon={CreditCard} to="/payment-gateway" label="Payment Gateway" expanded={open} onClick={handleItemClick} />
+          <SidebarNavItem Icon={Banknote} to="/payment-button" label="Payment Button" expanded={open} onClick={handleItemClick} />
           <SidebarNavItem Icon={Banknote} to="/settlements" label="Settlements" expanded={open} onClick={handleItemClick} />
           <SidebarNavItem Icon={ChartBar} to="/reports" label="Reports & Analytics" expanded={open} onClick={handleItemClick} />
           <SidebarNavItem Icon={DollarSign} to="/loan-services" label="Loan Services" expanded={open} onClick={handleItemClick} />

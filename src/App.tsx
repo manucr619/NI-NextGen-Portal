@@ -18,6 +18,7 @@ import SettingsPage from "./pages/SettingsPage";
 import CustomersPage from "./pages/CustomersPage";
 import CountriesPage from "./pages/CountriesPage";
 import DashboardPage from "./pages/DashboardPage";
+import PaymentButtonPage from "./pages/PaymentButtonPage";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +43,7 @@ const App = () => (
             <Route path="/settings" element={<SettingsPage />} />
             <Route path="/customers" element={<CustomersPage />} />
             <Route path="/countries" element={<CountriesPage />} />
+            <Route path="/payment-button" element={<PaymentButtonPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
