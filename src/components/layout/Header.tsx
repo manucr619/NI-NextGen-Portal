@@ -10,12 +10,15 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
+import { useNavigate } from 'react-router-dom';
 
 interface HeaderProps {
   toggleSidebar: () => void;
 }
 
 export const Header = ({ toggleSidebar }: HeaderProps) => {
+  const navigate = useNavigate();
+
   return (
     <header className="h-16 w-full flex items-center justify-between px-4 md:px-8 sticky top-0 z-50"
       style={{
@@ -113,7 +116,7 @@ export const Header = ({ toggleSidebar }: HeaderProps) => {
             <DropdownMenuItem>Settings</DropdownMenuItem>
             <DropdownMenuItem>Support</DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Log out</DropdownMenuItem>
+            <DropdownMenuItem onClick={() => navigate("/")}>Log out</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
