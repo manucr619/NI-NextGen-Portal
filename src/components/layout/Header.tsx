@@ -48,7 +48,7 @@ export const Header = ({ toggleSidebar }: HeaderProps) => {
           className="h-8 mr-2 drop-shadow-sm"
         />
         <div className="hidden md:flex items-center gap-2">
-          <h2 className="font-semibold text-lg text-gray-800 dark:text-gray-100">Welcome, John Doe</h2>
+          <h2 className="font-semibold text-lg text-gray-800 dark:text-gray-100">Hello, Manu</h2>
           <Button variant="ghost" size="sm">
             <ChevronDown size={16} />
           </Button>
